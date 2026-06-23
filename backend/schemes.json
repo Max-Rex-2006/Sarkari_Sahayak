@@ -1,0 +1,197 @@
+{
+  "schemes": [
+    {
+      "id": "nfsa_ration_card",
+      "name": "NFSA Ration Card",
+      "description": "5kg rice/wheat per person per month at subsidised rate (₹2-3/kg)",
+      "eligibility_rules": [
+        {"field": "income_annual", "operator": "lte", "value": 180000},
+        {"field": "has_ration_card", "operator": "eq", "value": false}
+      ],
+      "documents": [
+        "Aadhaar card (all family members)",
+        "Birth certificate (for minors)",
+        "Proof of residence (electricity bill / rent agreement)",
+        "Passport-size photo of head of family",
+        "Mobile number"
+      ],
+      "apply_at": "Nearest tehsil office or state food department portal"
+    },
+
+    {
+      "id": "pm_awas_yojana_gramin",
+      "name": "PM Awas Yojana - Gramin (PMAY-G)",
+      "description": "₹1.2L–₹1.3L to build a pucca house + ₹12,000 for toilet for rural BPL families",
+      "eligibility_rules": [
+        {"field": "income_annual", "operator": "lte", "value": 150000},
+        {"field": "owns_pucca_house", "operator": "eq", "value": false},
+        {"field": "is_rural", "operator": "eq", "value": true},
+        {"field": "awaas_plus_listed", "operator": "eq", "value": true}
+      ],
+      "documents": [
+        "Aadhaar card",
+        "Voter ID",
+        "Income certificate",
+        "Land records",
+        "MGNREGA job card",
+        "Proof of residence"
+      ],
+      "apply_at": "Gram Panchayat office or Block Development Office (BDO)"
+    },
+
+    {
+      "id": "ayushman_bharat_pmjay",
+      "name": "Ayushman Bharat PM-JAY",
+      "description": "₹5 Lakh per year free cashless secondary and tertiary hospitalization for low-income families and seniors aged 70+",
+      "eligibility_rules": [
+        {
+          "logical_operator": "OR",
+          "conditions": [
+            {"field": "in_secc_2011", "operator": "eq", "value": true},
+            {"field": "has_valid_nfsa_card", "operator": "eq", "value": true},
+            {"field": "age", "operator": "gte", "value": 70}
+          ]
+        }
+      ],
+      "documents": [
+        "Aadhaar card (all family members)",
+        "Valid NFSA Ration Card",
+        "Mobile number linked to Aadhaar",
+        "PM-JAY letter / HHID number (if available)"
+      ],
+      "apply_at": "Nearest empanelled hospital, Common Service Centre (CSC), or beneficiary.nha.gov.in"
+    },
+
+    {
+      "id": "svmcm_scholarship",
+      "name": "Swami Vivekananda Merit-cum-Means Scholarship (SVMCM)",
+      "description": "₹1,000–₹8,000/month scholarship for meritorious and economically backward West Bengal students based on the level of study",
+      "eligibility_rules": [
+        {"field": "state", "operator": "eq", "value": "west_bengal"},
+        {"field": "is_student", "operator": "eq", "value": true},
+        {"field": "income_annual", "operator": "lte", "value": 250000},
+        {"field": "marks_percentage", "operator": "gte", "value": 60},
+        {"field": "has_other_scholarship", "operator": "eq", "value": false}
+      ],
+      "documents": [
+        "Aadhaar card",
+        "Domicile certificate (West Bengal)",
+        "Income certificate issued by a competent authority (below ₹2.5L/year)",
+        "Mark sheet of the last qualifying public examination",
+        "Admission receipt for the current course registration",
+        "First page of Bank passbook (showing IFSC code)",
+        "Caste certificate (if applicable)"
+      ],
+      "apply_at": "svmcm.wb.gov.in (Official Online Portal)"
+    },
+
+    {
+      "id": "ignwps_widow_pension",
+      "name": "Indira Gandhi National Widow Pension Scheme (IGNWPS)",
+      "description": "Monthly pension of ₹1,000 for BPL widows (integrated with West Bengal state top-up allowances)",
+      "eligibility_rules": [
+        {"field": "is_widow", "operator": "eq", "value": true},
+        {"field": "is_bpl", "operator": "eq", "value": true},
+        {"field": "age", "operator": "gte", "value": 40},
+        {"field": "has_other_pension", "operator": "eq", "value": false}
+      ],
+      "documents": [
+        "Aadhaar card",
+        "Husband's death certificate",
+        "BPL card / Certified BPL family listing data",
+        "Age proof document (Birth certificate, Voter ID, or School certificate)",
+        "Domicile certificate",
+        "Passport-size photo",
+        "Bank passbook"
+      ],
+      "apply_at": "Local Block Development Office (BDO) or Municipality/Corporation office"
+    },
+
+    {
+      "id": "ignoaps_old_age_pension",
+      "name": "Indira Gandhi National Old Age Pension Scheme (IGNOAPS)",
+      "description": "Monthly social security pension of ₹1,000 for BPL senior citizens (includes Central baseline funds integrated with the West Bengal state top-up allowance)",
+      "eligibility_rules": [
+        {"field": "age", "operator": "gte", "value": 60},
+        {"field": "is_bpl", "operator": "eq", "value": true},
+        {"field": "has_other_pension", "operator": "eq", "value": false}
+      ],
+      "documents": [
+        "Application Form (signed)",
+        "Aadhaar Card (linked with bank account)",
+        "Voter ID Card",
+        "Valid BPL Ration Card / Certified BPL Listing ID",
+        "Official Age Proof Document (Birth Certificate / School Leaving Certificate)",
+        "First page of Bank Passbook",
+        "Self-declaration Affidavit stating no other active pension is received"
+      ],
+      "apply_at": "Local Block Development Office (BDO), Municipality Office, or via the Duare Sarkar regional outreach camps"
+    },
+
+    {
+      "id": "pm_kisan_samman_nidhi",
+      "name": "PM Kisan Samman Nidhi",
+      "description": "Income support of ₹6,000/year distributed in three equal installments of ₹2,000 every 4 months directly via DBT to all landholding farmer families",
+      "eligibility_rules": [
+        {"field": "is_farmer", "operator": "eq", "value": true},
+        {"field": "owns_cultivable_land", "operator": "eq", "value": true},
+        {"field": "has_completed_ekyc", "operator": "eq", "value": true},
+        {"field": "is_government_taxpayer", "operator": "eq", "value": false},
+        {"field": "is_government_employee", "operator": "eq", "value": false}
+      ],
+      "documents": [
+        "Aadhaar Card (Mandatory biometric seeded)",
+        "Updated Land Ownership Documents (Khatian / RoR / Land Revenue Records)",
+        "Aadhaar-linked Bank Account Passbook with IFSC code",
+        "Active Mobile Number for OTP Verification"
+      ],
+      "apply_at": "pmkisan.gov.in or nearest CSC centre or Patwari/Lekhpal office"
+    },
+
+    {
+      "id": "nmms_scholarship",
+      "name": "NMMS Scholarship (National Means-cum-Merit Scholarship)",
+      "description": "₹12,000/year (₹1,000/month) stipend spanning Class 9 to Class 12 for meritorious students cleared via the state level MAT/SAT selection exams",
+      "eligibility_rules": [
+        {"field": "is_student", "operator": "eq", "value": true},
+        {"field": "application_stage_class", "operator": "eq", "value": 8},
+        {"field": "income_annual", "operator": "lte", "value": 350000},
+        {"field": "marks_percentage_class_7", "operator": "gte", "value": 55},
+        {"field": "school_type", "operator": "in", "value": ["government", "government_aided", "local_body"]}
+      ],
+      "documents": [
+        "Parental Income Certificate issued by competent authority (BDO / SDO)",
+        "Class 7 official report card / marksheet (50% threshold for SC/ST)",
+        "Institutional verification certificate signed by Head of School",
+        "Aadhaar card of the student",
+        "Student bank account passbook copy with explicit IFSC code",
+        "Caste / Disability certificate (if seeking reservation quota allocation)"
+      ],
+      "apply_at": "State education department portal or through your school"
+    },
+
+    {
+      "id": "kanyashree_prakalpa",
+      "name": "Kanyashree Prakalpa",
+      "description": "K1: ₹1,000/year scholarship (age 13-18) | K2: ₹25,000 one-time grant (at 18) for unmarried girls in West Bengal",
+      "eligibility_rules": [
+        {"field": "state", "operator": "eq", "value": "west_bengal"},
+        {"field": "gender", "operator": "eq", "value": "female"},
+        {"field": "age", "operator": "gte", "value": 13},
+        {"field": "age", "operator": "lte", "value": 19},
+        {"field": "is_married", "operator": "eq", "value": false},
+        {"field": "income_annual", "operator": "lte", "value": 120000},
+        {"field": "is_student", "operator": "eq", "value": true}
+      ],
+      "documents": [
+        "Passport-size photo",
+        "Age proof (birth certificate / Aadhaar)",
+        "Marital status certificate (unmarried declaration)",
+        "Income certificate (below ₹1.2L/year)",
+        "School or college enrollment certificate",
+        "Certificate attested by Gazetted Officer / MLA / Pradhan"
+      ],
+      "apply_at": "School or college office, or kanyashree.wb.gov.in"
+    }
+  ]
+}
