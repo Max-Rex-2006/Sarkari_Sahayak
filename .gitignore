@@ -1,0 +1,98 @@
+# ------------------------------
+# OS-generated files
+# ------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ------------------------------
+# Editor / IDE
+# ------------------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ------------------------------
+# Logs
+# ------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------
+# Environment / secrets
+# ------------------------------
+.env
+.env.*
+!.env.example
+
+# ------------------------------
+# Node.js / Frontend
+# ------------------------------
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+.parcel-cache/
+.next/
+.nuxt/
+.svelte-kit/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# ------------------------------
+# Python
+# ------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ------------------------------
+# Python packaging
+# ------------------------------
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ------------------------------
+# Testing artifacts
+# ------------------------------
+.coverage
+.coverage.*
+htmlcov/
+
+# ------------------------------
+# Caches / temporary files
+# ------------------------------
+.cache/
+.tmp/
+tmp/
+*.tmp
+
+# ------------------------------
+# Misc generated files
+# ------------------------------
+*.pid
+*.seed
+*.pid.lock
